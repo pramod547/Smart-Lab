@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}Notes | Smart Lab{% endblock %}
+
+{% block content %}
+<section id="NOTES" class="notes notes-page">
+    <div class="container py-5">
+        <div class="notes-showcase-inner">
+            <div class="row">
+                <div class="col-md-12 mb-3 text-center">
+                    <span class="notes-kicker"><i class="bi bi-journal-richtext"></i> Library</span>
+                    <span class="mainheading">NOTES</span>
+                    <span class="subheading">Browse and download study materials</span>
+                </div>
+            </div>
+            <div class="navnotes navnotes--showcase mb-4">
+                <ul class="nav justify-content-center flex-wrap">
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link {% if request.endpoint == 'notes' %}active{% endif %}" {% if request.endpoint == 'notes' %}aria-current="page"{% endif %} href="{{ url_for('notes') }}">
+                            <i class="bi bi-download me-2" aria-hidden="true"></i>DOWNLOAD NOTES
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-pill-link {% if request.endpoint == 'upload_note' %}active{% endif %}" href="{{ url_for('upload_note') if current_user.is_authenticated else url_for('login') }}">
+                            <i class="bi bi-cloud-arrow-up me-2" aria-hidden="true"></i>UPLOAD NOTES
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="notes-deco-row mb-4" aria-hidden="true">
+                <span class="notes-deco-dot"></span>
+                <span class="notes-deco-line"></span>
+                <span class="notes-deco-dot"></span>
+            </div>
+        </div>
+
+        {% if notes %}
+        <div class="row g-4 notes-card-grid">
+            {% for note in notes %}
+            <div class="col-lg-4 col-md-6">
+                <article class="note-library-card">
+                    <div class="note-library-card__accent" aria-hidden="true"></div>
+                    <div class="note-library-card__header">
+                        <div class="note-library-card__icon" aria-hidden="true">
+                            <i class="bi bi-file-earmark-pdf-fill"></i>
+                        </div>
+                        <div class="note-library-card__titles">
+                            <h3 class="note-library-card__title">{{ note.title }}</h3>
+                            <span class="note-subject-badge">{{ note.subject }}</span>
+                        </div>
+                    </div>
+                    <ul class="note-library-card__meta list-unstyled small">
+                        <li><i class="bi bi-calendar3 me-1"></i>{{ note.upload_date.strftime('%Y-%m-%d %H:%M') }}</li>
+                        <li><i class="bi bi-person me-1"></i>{{ note.author.username if note.author else '—' }}</li>
+                        <li class="note-library-card__filename text-truncate" title="{{ note.uploaded_file.original_filename if note.uploaded_file else '' }}">
+                            <i class="bi bi-paperclip me-1"></i>{{ note.uploaded_file.original_filename if note.uploaded_file else '—' }}
+                        </li>
+                    </ul>
+                    <div class="note-library-card__actions">
+                        <a class="note-btn note-btn--view" href="{{ url_for('view_note', note_id=note.id) }}"><i class="bi bi-eye me-1"></i>View</a>
+                        <a class="note-btn note-btn--dl" href="{{ url_for('download_note', note_id=note.id) }}"><i class="bi bi-download me-1"></i>Download</a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="notes-empty-panel text-center">
+                    <div class="notes-empty-panel__ring" aria-hidden="true">
+                        <i class="bi bi-inboxes"></i>
+                    </div>
+                    <h3 class="notes-empty-panel__title">Your library is waiting</h3>
+                    <p class="notes-empty-panel__text mb-3">No notes have been uploaded yet. Be the first to share a PDF with classmates.</p>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('upload_note') }}" class="note-btn note-btn--primary">Upload the first note</a>
+                    {% else %}
+                    <a href="{{ url_for('login') }}" class="note-btn note-btn--primary">Log in to upload</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

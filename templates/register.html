@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Register | Smart Lab{% endblock %}
+
+{% block content %}
+<section class="about form-page">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <span class="mainheading">Create account</span>
+                <span class="subheading">Join Smart Lab to upload and share notes</span>
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="servicecard1 mt-3">
+                    <form method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.username.label(class="form-label") }}
+                            {{ form.username(class="form-control") }}
+                            {% for err in form.username.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.email.label(class="form-label") }}
+                            {{ form.email(class="form-control") }}
+                            {% for err in form.email.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password.label(class="form-label") }}
+                            {{ form.password(class="form-control") }}
+                            {% for err in form.password.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password2.label(class="form-label") }}
+                            {{ form.password2(class="form-control") }}
+                            {% for err in form.password2.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        {{ form.submit(class="btn aboutlearnmore2 mt-2") }}
+                    </form>
+                    <p class="mt-3 mb-0 small">Already have an account? <a href="{{ url_for('login') }}" class="aboutlearnmore2" style="display:inline;padding:4px 10px;">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Upload notes | Smart Lab{% endblock %}
+
+{% block content %}
+<section class="about form-page">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <span class="mainheading">Upload notes</span>
+                <span class="subheading">PDF study materials only (max 16 MB)</span>
+            </div>
+            <div class="col-md-8 offset-md-2">
+                <div class="servicecard1 mt-3">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.title.label(class="form-label") }}
+                            {{ form.title(class="form-control") }}
+                            {% for err in form.title.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.subject.label(class="form-label") }}
+                            {{ form.subject(class="form-control") }}
+                            {% for err in form.subject.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.pdf.label(class="form-label") }}
+                            {{ form.pdf(class="form-control") }}
+                            {% for err in form.pdf.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+                        </div>
+                        {{ form.submit(class="btn aboutlearnmore2 mt-2") }}
+                    </form>
+                    <p class="mt-3 mb-0"><a href="{{ url_for('notes') }}" class="aboutlearnmore2">Browse all notes</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

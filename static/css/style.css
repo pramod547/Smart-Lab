@@ -1,0 +1,979 @@
+/*star navbar */
+.navbar{
+    background-color: rgb(72, 19, 26);
+    padding: 10px 0px;
+}
+.nav-item{
+    padding: 0px 10px;
+}
+.nav-item:hover .nav-link 
+{
+   color: rgb(164, 182, 75);
+}
+.navbar-brand{
+    font-size: 30px;
+}
+.navbar-brand i
+{
+    color:rgb(164, 182, 75) ;
+    font-weight: 700 !important;
+    font-size: 30px;
+}
+/* end navbar  */
+/* start carousel */
+.bg1{
+
+    background: linear-gradient(rgba(72, 19, 26, 0.5), rgba(72, 19, 26, 0.5)), url("../images/image1.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(90vh);
+    position: relative;
+}
+.bg2 {
+    background: linear-gradient(rgba(72, 19, 26, 0.5), rgba(72, 19, 26, 0.5)), url("../images/image2.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(90vh);
+    position: relative;
+}
+.bg3 {
+    background: linear-gradient(rgba(72, 19, 26, 0.5), rgba(72, 19, 26, 0.5)), url("../images/image3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(90vh);
+    position: relative;
+}
+.mycaption{
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(92%, 560px);
+    padding: 0;
+    z-index: 1;
+}
+@media only screen and (max-width:720px){
+    .mycaption{
+        width: 88%;
+    }
+}
+
+/* Floating glass card on the welcome / carousel hero */
+.welcome-float-card{
+    background: rgba(72, 19, 26, 0.72);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(164, 182, 75, 0.5);
+    border-radius: 18px;
+    padding: 2.25rem 2.5rem;
+    box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.38),
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+    animation: welcomeFloat 5s ease-in-out infinite;
+}
+@media only screen and (max-width:720px){
+    .welcome-float-card{
+        padding: 1.5rem 1.25rem;
+        border-radius: 14px;
+    }
+}
+
+@keyframes welcomeFloat{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(-12px); }
+}
+
+.mycaption h3{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+@media only screen and (max-width:720px){
+    .mycaption h3{
+        font-size: 36px;
+    }
+}
+.mycaption p{
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.55;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+/* end carousel */
+
+/* start about */
+section{
+    padding: 50px 0px;
+
+}
+.mainheading{
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    display: block;
+}
+.mainheading::before{
+    content: "";
+    width: 100px;
+    background-color: rgb(164, 182, 75);
+    height: 3px;
+    margin: 14px;
+    display: inline-block;
+}
+.mainheading::after {
+    content: "";
+    width: 100px;
+    background-color: rgb(164, 182, 75);
+    height: 3px;
+    margin: 14px;
+    display: inline-block;
+}
+.subheading{
+    text-align: center;
+    display: block;
+
+}
+.about p,li{
+    line-height: 23.5px;
+}
+.about ul{
+    list-style-type: none;
+}
+.about i{
+    padding: right 10px; 
+    color: rgb(164, 182, 75);
+    font-size: 17px;
+}
+.aboutlearnmore{
+    color: rgb(164, 182, 75);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid rgb(164, 182, 75);
+    display: inline-block;
+    margin: top 20px;
+
+}
+.aboutlearnmore:hover{
+    color: #fff;
+    background-color: rgb(164, 182, 75);
+    transition: 0.5s;
+}
+.mainheading2{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    text-shadow:  0px 2px 50px #822828 ;
+    
+}
+
+/* --- About feature cards (stacked look + hover depth) --- */
+.mycard,
+.mycard2,
+.mycard3 {
+    position: relative;
+    overflow: hidden;
+    padding: 1.75rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: 18px;
+    border: 1px solid rgba(72, 19, 26, 0.14);
+    background: linear-gradient(160deg, rgb(232, 180, 186) 0%, rgb(219, 162, 167) 42%, rgb(205, 140, 152) 100%);
+    box-shadow:
+        0 14px 34px rgba(72, 19, 26, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+/* Top accent stripe — unique per card */
+.about-stack-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 5px;
+    border-radius: 18px 18px 0 0;
+    opacity: 0.95;
+    pointer-events: none;
+}
+.about-stack-card--notes::before {
+    background: linear-gradient(90deg, rgb(72, 19, 26), rgb(164, 182, 75), rgb(72, 19, 26));
+}
+.about-stack-card--access::before {
+    background: linear-gradient(90deg, rgb(164, 182, 75), rgb(72, 19, 26), rgb(164, 182, 75));
+}
+.about-stack-card--design::before {
+    background: linear-gradient(90deg, rgb(130, 40, 55), rgb(219, 162, 167), rgb(164, 182, 75));
+}
+
+/* Soft glow blob — shifts on hover */
+.about-stack-card::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: -70px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(164, 182, 75, 0.35) 0%, transparent 68%);
+    pointer-events: none;
+    transition: transform 0.65s ease, opacity 0.45s ease;
+    z-index: 0;
+}
+.about-stack-card--access::after {
+    left: -90px;
+    right: auto;
+    top: auto;
+    bottom: -80px;
+    background: radial-gradient(circle, rgba(72, 19, 26, 0.2) 0%, transparent 70%);
+}
+.about-stack-card--design::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, transparent 65%);
+}
+
+.about-stack-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(164, 182, 75, 0.55);
+    box-shadow:
+        0 26px 48px rgba(72, 19, 26, 0.28),
+        0 0 0 1px rgba(164, 182, 75, 0.45),
+        0 0 40px rgba(164, 182, 75, 0.15);
+}
+.about-stack-card--notes:hover::after {
+    transform: translate(12%, -8%) scale(1.2);
+    opacity: 1;
+}
+.about-stack-card--access:hover::after {
+    transform: translate(8%, 8%) scale(1.2);
+    opacity: 1;
+}
+.about-stack-card--design:hover::after {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+}
+
+/* Icon ring */
+.mycard > span:first-of-type,
+.mycard2 > span:first-of-type,
+.mycard3 > span:first-of-type {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0.65rem;
+    border-radius: 50%;
+    background: linear-gradient(150deg, rgb(72, 19, 26), rgb(110, 42, 54));
+    color: rgb(164, 182, 75);
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+.about-stack-card:hover > span:first-of-type {
+    transform: translateY(-4px) rotate(-3deg);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32), 0 0 0 3px rgba(164, 182, 75, 0.35);
+}
+
+.mycard i,
+.mycard2 i,
+.mycard3 i {
+    font-size: 30px;
+    padding-right: 0;
+}
+
+.counter {
+    position: relative;
+    z-index: 1;
+    font-size: 30px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.35rem;
+    color: rgb(55, 18, 24);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.mycard li,
+.mycard2 li,
+.mycard3 li {
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    padding: 0.2rem 0;
+    transition: padding-left 0.25s ease, color 0.25s ease;
+}
+.mycard li:hover,
+.mycard2 li:hover,
+.mycard3 li:hover {
+    padding-left: 8px;
+    color: rgb(50, 16, 22);
+}
+
+.mycard ul i,
+.mycard2 ul i,
+.mycard3 ul i {
+    padding-right: 10px;
+    color: rgb(164, 182, 75);
+    font-size: 17px;
+}
+
+.mycard > span:not(:first-of-type),
+.mycard2 > span:not(:first-of-type),
+.mycard3 > span:not(:first-of-type) {
+    position: relative;
+    z-index: 1;
+}
+
+.mycard a,
+.mycard2 a,
+.mycard3 a {
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: rgb(72, 19, 26);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+.mycard a:hover,
+.mycard2 a:hover,
+.mycard3 a:hover {
+    color: rgb(164, 182, 75);
+    border-bottom-color: rgb(164, 182, 75);
+    
+}
+
+/* Staggered entrance (subtle) */
+.about-stack-card--notes {
+    animation: aboutCardIn 0.85s ease backwards;
+}
+.about-stack-card--access {
+    animation: aboutCardIn 0.85s ease 0.12s backwards;
+}
+.about-stack-card--design {
+    animation: aboutCardIn 0.85s ease 0.24s backwards;
+}
+@keyframes aboutCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-stack-card,
+    .about-stack-card::after,
+    .about-stack-card > span:first-of-type {
+        animation: none !important;
+        transition: none !important;
+    }
+    .about-stack-card:hover {
+        transform: none;
+    }
+}
+
+/* end about cards */
+
+/* --- Service cards: base (forms / empty states) vs spotlight (home Services row) --- */
+
+.servicecard1 {
+    padding: 20px;
+    box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.351);
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgb(219, 162, 167);
+    transition: box-shadow 0.35s ease;
+}
+
+/* Creative treatment only on the Services section cards */
+.servicecard1.service-spotlight {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+    height: auto;
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 18px;
+    border: 1px solid rgba(72, 19, 26, 0.12);
+    background: linear-gradient(180deg, rgb(228, 175, 182) 0%, rgb(219, 162, 167) 55%, rgb(208, 148, 156) 100%);
+    box-shadow:
+        0 12px 30px rgba(72, 19, 26, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+/* Corner ribbon + bottom shine line per service */
+.service-spotlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 56px 56px 0;
+    border-color: transparent rgb(72, 19, 26) transparent transparent;
+    opacity: 0.88;
+    pointer-events: none;
+    z-index: 0;
+}
+.service-spotlight--up::before {
+    border-color: transparent rgb(164, 182, 75) transparent transparent;
+}
+.service-spotlight--share::before {
+    border-color: transparent rgb(130, 45, 58) transparent transparent;
+}
+.service-spotlight--devices::before {
+    border-color: transparent rgb(90, 28, 38) transparent transparent;
+}
+
+.service-spotlight::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 0;
+    height: 4px;
+    border-radius: 4px 4px 0 0;
+    transform: scaleX(0.35);
+    opacity: 0;
+    transition: transform 0.45s ease, opacity 0.35s ease;
+    background: linear-gradient(90deg, transparent, rgb(164, 182, 75), transparent);
+    z-index: 0;
+}
+.service-spotlight--dl::after {
+    background: linear-gradient(90deg, transparent, rgb(72, 19, 26), rgb(164, 182, 75), transparent);
+}
+.service-spotlight:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+.servicecard1.service-spotlight > span:first-of-type {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+    border-radius: 16px;
+    color: rgb(164, 182, 75);
+    background: linear-gradient(145deg, rgb(72, 19, 26), rgb(98, 36, 46));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    transform: rotate(-4deg);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+.servicecard1.service-spotlight:hover > span:first-of-type {
+    transform: rotate(0deg) scale(1.08);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.servicecard1.service-spotlight span i {
+    font-size: 28px;
+}
+
+.servicecard1.service-spotlight h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 1.15rem;
+    margin: 0.35rem 0 0.75rem;
+    font-weight: 700;
+    color: rgb(55, 18, 24);
+    line-height: 1.35;
+}
+.servicecard1.service-spotlight h2 span {
+    background: linear-gradient(90deg, rgb(72, 19, 26), rgb(110, 42, 54));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.servicecard1.service-spotlight p {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgb(55, 22, 28);
+}
+
+.servicecard1.service-spotlight .aboutlearnmore2 {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(72, 19, 26, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.servicecard1.service-spotlight:hover .aboutlearnmore2 {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(72, 19, 26, 0.2);
+}
+
+.servicecard1.service-spotlight:hover {
+    transform: translateY(-10px);
+    border-color: rgba(164, 182, 75, 0.5);
+    box-shadow:
+        0 22px 44px rgba(72, 19, 26, 0.26),
+        0 0 0 1px rgba(164, 182, 75, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .servicecard1.service-spotlight,
+    .servicecard1.service-spotlight > span:first-of-type,
+    .servicecard1.service-spotlight .aboutlearnmore2 {
+        animation: none !important;
+        transition: none !important;
+    }
+    .servicecard1.service-spotlight:hover {
+        transform: none;
+    }
+}
+
+.aboutlearnmore2 {
+    color: rgb(137, 153, 57);
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: top 20px;
+}
+.aboutlearnmore2:hover {
+    color: #fff;
+    background-color: rgb(164, 182, 75);
+    transition: 0.5s;
+}
+/* end services  */
+
+/* start faq */
+.acordion-item{
+    font-size: 20px;
+
+}
+.acordion-item acordion-header{
+    font-size: 30px;
+}
+/* end faq */
+
+
+/* start Notes — showcase band + library cards */
+section.notes {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Home: soft band behind the NOTES block */
+.notes-showcase {
+    padding: 2.5rem 0 3rem;
+    background: linear-gradient(
+        165deg,
+        rgba(219, 162, 167, 0.45) 0%,
+        rgba(255, 255, 255, 0.92) 42%,
+        rgb(250, 247, 248) 100%
+    );
+}
+.notes-showcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        -11deg,
+        transparent,
+        transparent 22px,
+        rgba(164, 182, 75, 0.07) 22px,
+        rgba(164, 182, 75, 0.07) 24px
+    );
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+/* Notes listing page: slightly deeper tone */
+.notes-page {
+    padding-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(232, 200, 205, 0.5) 0%, #faf8f9 55%, #fff 100%);
+}
+.notes-page::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 6px;
+    background: linear-gradient(90deg, rgb(72, 19, 26), rgb(164, 182, 75), rgb(72, 19, 26));
+    opacity: 0.85;
+}
+
+.notes-showcase-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.notes-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(72, 19, 26);
+    opacity: 0.85;
+    margin-bottom: 0.35rem;
+}
+.notes-kicker i {
+    color: rgb(164, 182, 75);
+    font-size: 1rem;
+}
+
+.notes-tagline {
+    max-width: 38rem;
+    margin: 0.75rem auto 0;
+    line-height: 1.55;
+    color: rgb(72, 19, 26);
+    opacity: 0.88;
+    font-size: 0.98rem;
+}
+
+/* Decorative divider under pills */
+.notes-deco-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+.notes-deco-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(164, 182, 75);
+    box-shadow: 0 0 0 3px rgba(164, 182, 75, 0.25);
+}
+.notes-deco-line {
+    flex: 0 1 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgb(72, 19, 26), transparent);
+    opacity: 0.35;
+}
+
+/* Pill navigation */
+.navnotes--showcase ul.nav {
+    gap: 0.85rem 1rem;
+    border: none;
+}
+.navnotes--showcase .nav-item {
+    padding: 0;
+}
+.navnotes--showcase .nav-pill-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: rgb(72, 19, 26);
+    text-align: center;
+    border-radius: 999px;
+    padding: 0.65rem 1.6rem;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.03em;
+    border: 2px solid rgba(164, 182, 75, 0.55);
+    box-shadow: 0 8px 22px rgba(72, 19, 26, 0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease,
+        border-color 0.3s ease;
+}
+.navnotes--showcase .nav-pill-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(72, 19, 26, 0.18);
+    border-color: rgb(164, 182, 75);
+    color: rgb(72, 19, 26);
+}
+.navnotes--showcase .nav-pill-link.active {
+    background: linear-gradient(145deg, rgb(72, 19, 26), rgb(105, 38, 48));
+    color: rgb(220, 228, 160);
+    border-color: rgba(164, 182, 75, 0.85);
+    box-shadow: 0 12px 28px rgba(72, 19, 26, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+.navnotes--showcase .nav-pill-link.active i {
+    color: rgb(164, 182, 75);
+}
+
+/* Legacy: any old navnotes without --showcase */
+.navnotes:not(.navnotes--showcase) li a {
+    background-color: #fff;
+    color: rgb(164, 182, 75);
+    text-align: center;
+}
+
+/* —— Notes listing: library cards —— */
+.notes-card-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.note-library-card {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.35rem 1.25rem 1.15rem;
+    border-radius: 18px;
+    background: linear-gradient(165deg, rgb(255, 252, 252) 0%, rgb(250, 236, 238) 100%);
+    border: 1px solid rgba(72, 19, 26, 0.12);
+    box-shadow: 0 12px 28px rgba(72, 19, 26, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.35s ease;
+    animation: noteCardIn 0.55s ease backwards;
+}
+@keyframes noteCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.note-library-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(164, 182, 75, 0.55);
+    box-shadow: 0 22px 40px rgba(72, 19, 26, 0.2), 0 0 0 1px rgba(164, 182, 75, 0.25);
+}
+.note-library-card__accent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    background: linear-gradient(90deg, rgb(72, 19, 26), rgb(164, 182, 75), rgb(130, 45, 58));
+    opacity: 0.95;
+}
+.note-library-card__header {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+}
+.note-library-card__icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgb(72, 19, 26), rgb(98, 36, 46));
+    color: rgb(244, 110, 95);
+    font-size: 1.55rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.35s ease;
+}
+.note-library-card:hover .note-library-card__icon {
+    transform: scale(1.06) rotate(-4deg);
+}
+.note-library-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(55, 18, 24);
+    line-height: 1.3;
+    margin: 0 0 0.4rem;
+}
+.note-subject-badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    background: rgba(164, 182, 75, 0.35);
+    color: rgb(45, 50, 18);
+    border: 1px solid rgba(164, 182, 75, 0.6);
+}
+.note-library-card__meta {
+    flex: 1 1 auto;
+    margin: 0 0 1rem;
+    color: rgb(72, 19, 26);
+    opacity: 0.88;
+}
+.note-library-card__meta li {
+    padding: 0.2rem 0;
+    border-bottom: 1px dashed rgba(72, 19, 26, 0.12);
+}
+.note-library-card__meta li:last-child {
+    border-bottom: none;
+}
+.note-library-card__filename {
+    display: block;
+    max-width: 100%;
+}
+.note-library-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+.note-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid rgba(72, 19, 26, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.note-btn--view {
+    background: #fff;
+    color: rgb(72, 19, 26);
+}
+.note-btn--view:hover {
+    background: rgb(72, 19, 26);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(72, 19, 26, 0.25);
+}
+.note-btn--dl {
+    background: linear-gradient(145deg, rgb(164, 182, 75), rgb(140, 155, 62));
+    color: rgb(35, 28, 20);
+    border-color: rgba(72, 19, 26, 0.15);
+}
+.note-btn--dl:hover {
+    color: rgb(25, 22, 18);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(164, 182, 75, 0.45);
+}
+.note-btn--primary {
+    padding: 0.55rem 1.35rem;
+    background: linear-gradient(145deg, rgb(72, 19, 26), rgb(100, 38, 48));
+    color: rgb(220, 228, 160);
+    border: 1px solid rgba(164, 182, 75, 0.45);
+}
+.note-btn--primary:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(72, 19, 26, 0.35);
+}
+
+/* Empty library panel */
+.notes-empty-panel {
+    position: relative;
+    padding: 2.5rem 1.75rem;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgb(255, 255, 255), rgb(248, 228, 232));
+    border: 2px dashed rgba(164, 182, 75, 0.55);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 16px 36px rgba(72, 19, 26, 0.08);
+}
+.notes-empty-panel__ring {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2.25rem;
+    color: rgb(164, 182, 75);
+    background: linear-gradient(145deg, rgb(72, 19, 26), rgb(95, 36, 46));
+    box-shadow: 0 12px 28px rgba(72, 19, 26, 0.25);
+    animation: notesEmptyPulse 3.5s ease-in-out infinite;
+}
+@keyframes notesEmptyPulse {
+    0%,
+    100% {
+        box-shadow: 0 12px 28px rgba(72, 19, 26, 0.25), 0 0 0 0 rgba(164, 182, 75, 0.35);
+    }
+    50% {
+        box-shadow: 0 12px 32px rgba(72, 19, 26, 0.3), 0 0 0 12px rgba(164, 182, 75, 0);
+    }
+}
+.notes-empty-panel__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: rgb(72, 19, 26);
+}
+.notes-empty-panel__text {
+    color: rgb(72, 19, 26);
+    opacity: 0.85;
+    max-width: 26rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .note-library-card,
+    .note-library-card__icon,
+    .note-btn,
+    .navnotes--showcase .nav-pill-link {
+        transition: none !important;
+    }
+    .note-library-card {
+        animation: none !important;
+    }
+    .note-library-card:hover {
+        transform: none;
+    }
+    .notes-empty-panel__ring {
+        animation: none;
+    }
+}
+/* end Notes */
+
+/* help */
+.help{
+    background-color:rgb(72, 19, 26) ;
+    color:#fff;
+    text-align: center;
+}
+.help p{
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+.help-phone{
+    font-size :30px;
+}
+/* help */
+/* start footer  */
+.footer{
+    background-color:rgb(72, 19, 26);
+    color: #fff;
+    padding: 5px; ;
+}
+/* end footer */
+
+/* Forms (register / login / upload): reuse service card look with flexible height */
+.form-page .servicecard1 {
+    height: auto;
+    min-height: 280px;
+    text-align: left;
+}
+
+
+
