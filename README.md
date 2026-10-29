@@ -3,6 +3,7 @@
 A secure, modular, full-stack study notes sharing platform built with **Flask** and **SQLAlchemy**. Smart Lab lets students register, log in, upload PDF study materials, search/filter notes, view PDFs inline in browser, and download them with secure session management, magic-byte validation, and CSRF protection.
 
 ---
+visit the site with this url : https://smart-lab-delta.vercel.app/
 
 ## ✨ Features
 
